@@ -21,7 +21,8 @@ const router = createBrowserRouter([
             {
                 path : '/borrow',
                 Component : Borrow
-            }
+            },
+           
         ]
     }
 

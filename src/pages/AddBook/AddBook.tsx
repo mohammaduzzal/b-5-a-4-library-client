@@ -8,11 +8,13 @@ import { bookSchema, type BookFormValues } from "@/schemas/bookSchema";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router";
 
 
 
 
 export default function AddBook() {
+  
   const form = useForm<BookFormValues>({
     resolver : zodResolver(bookSchema),
     defaultValues :{
@@ -24,7 +26,8 @@ export default function AddBook() {
       copies : 0, 
     }
   });
-  const [createBook] = useCreateBookMutation()
+  const [createBook] = useCreateBookMutation();
+  const navigate = useNavigate();
 
   const onSubmit = async (data : BookFormValues) => {
     const bookData = {
@@ -41,7 +44,8 @@ export default function AddBook() {
       timer: 1500
     });
     console.log(res);
-    form.reset()
+    form.reset();
+    navigate("/")
     
    } catch (error) {
     console.error("Failed to create book:", error);

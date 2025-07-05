@@ -1,6 +1,7 @@
 import type { IBook } from "@/types";
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 
+
 interface BooksApiResponse {
     data : IBook[]
 }
@@ -28,9 +29,25 @@ export const bookApi = createApi({
                 body : bookData
             }),
             invalidatesTags : ["book"]
+        }),
+        updateBook : builder.mutation<SingleBookApiResponse, Partial<IBook>, Pick<IBook, '_id'>>({
+            query : ({_id, ...patch})=>({
+                url : `/books/${_id}`,
+                method : "PATCH",
+                body : patch
+            }),
+            invalidatesTags : ["book"]
+        })
+        ,
+        deleteBook : builder.mutation<void, string>({
+            query : (id)=>({
+                url : `/books/${id}`,
+                method : "DELETE",
+            }),
+            invalidatesTags : ["book"]
         })
     })
 })
 
 
-export const {useGetBooksQuery, useCreateBookMutation} = bookApi;
+export const {useGetBooksQuery, useCreateBookMutation,useDeleteBookMutation,useUpdateBookMutation} = bookApi;

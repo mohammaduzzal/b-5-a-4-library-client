@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const bookSchema = z.object({
+    
     title : z.string(),
     author : z.string(),
     genre : z.enum(["FICTION", "NON_FICTION", "SCIENCE", "HISTORY", "BIOGRAPHY", "FANTASY"]),

@@ -35,7 +35,7 @@ export default function Books() {
 
 
 
-  console.log(books);
+  // console.log(books);
 
   const handleDelete = (id: string, title: string) => {
 

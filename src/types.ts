@@ -17,3 +17,14 @@ export interface IBorrow{
     dueDate : Date;
 
 };
+
+
+
+// Add the IBorrowSummary interface
+export interface IBorrowSummary {
+  book: { // This is an object with book details after aggregation
+    title: string;
+    isbn: string;
+  };
+  totalQuantity: number;
+}

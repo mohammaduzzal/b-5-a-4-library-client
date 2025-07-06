@@ -1,7 +1,7 @@
 import BorrowBookForm from "@/components/BorrowBookForm";
 import EditBookForm from "@/components/EditBookForm";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useDeleteBookMutation, useGetBooksQuery } from "@/redux/feature/book/bookApi";
 import type { IBook } from "@/types";
 import { useState } from "react";

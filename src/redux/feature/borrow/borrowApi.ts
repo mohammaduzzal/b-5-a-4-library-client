@@ -1,9 +1,9 @@
 import type { IBorrow, IBorrowSummary } from "@/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-interface BorrowApiResponse{
-    data : IBorrow[]
-}
+// interface BorrowApiResponse{
+//     data : IBorrow[]
+// }
 
 interface BorrowSummaryApiResponse {
     data : IBorrowSummary[]
@@ -15,7 +15,7 @@ interface SingleBorrowApiResponse{
 
 export const borrowApi = createApi({
     reducerPath : "borrowApi",
-    baseQuery : fetchBaseQuery({baseUrl : "http://localhost:5000"}),
+    baseQuery : fetchBaseQuery({baseUrl : "https://assignment-4-server-phi.vercel.app"}),
     tagTypes : ["borrow"],
     endpoints : (builder) =>({
         getBorrow : builder.query<IBorrowSummary[], void>({
